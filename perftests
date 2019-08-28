@@ -1,0 +1,10 @@
+# To track performance tests 
+
+Baseline scenario 1:  run kafka-consumer-perf-test.sh and kafka-producer-perf-test.sh WITHOUT TLS
+Baseline scenario 2:  run kafka-consumer-perf-test.sh and kafka-producer-perf-test.sh WITH TLS
+
+
+
+
+Pre-reqs:
+1. Get sample message from the customer
