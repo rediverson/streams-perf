@@ -1,6 +1,8 @@
 # To track performance tests 
 
 Baseline scenario 1:  run kafka-consumer-perf-test.sh and kafka-producer-perf-test.sh WITHOUT TLS
+Scenario 1A: producer only  (based on custoemr response to 3. below)
+Scenario 1B: consumer only
 Baseline scenario 2:  run kafka-consumer-perf-test.sh and kafka-producer-perf-test.sh WITH TLS
 Need to evolve these to see if we need more than single threaded scenarios
 
