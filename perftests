@@ -60,4 +60,4 @@ Need the following
 -# of topics
 -Replication factor needed
 -Incoming message rate : I am assuming this is the 3000messages @ 5 kb and so 15mb/sec
--# of different consumer groups reading from this topic
+-# of different consumer groups reading from each of the topics
