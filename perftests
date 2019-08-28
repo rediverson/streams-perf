@@ -12,26 +12,33 @@ Need to evolve these to see if we need more than single threaded scenarios
 
 Pre-reqs/ Customer clarifications
 ---------------------------------
-1. Get sample message from the customer
+1. Get sample message from the customer? What is the size of the message?(do we need large msg settings?)
 2. How do they intend to run the perf test? timebound? # of messages sent and received?
 3. Do they want to test writes and reads or either?
 4. Will the publisher specify what partition to write to? K check kafka-producer-perf-test.sh
 5. Does teh customer want to do 'single thread' only? 
+6. Make sure we have one consumer per partition
+7. 
 
 
 
-Items to tune (K to redo the order?):
+Items to tune (K to redo the order? and reorder by what to do in producer, consumer and broker):
 ---------------------------------------
-1. Replication factor? ie replicas per partition 
-2. Replication: sync vs async
-3. OS Page cache? or too early for that?
-4.# The number of threads doing disk I/O
+-Replication factor? ie replicas per partition 
+- Replication: sync vs async
+-OS Page cache? or too early for that?
+-# The number of threads doing disk I/O
 num.io.threads=8
 
-# The send buffer (SO_SNDBUF) used by the socket server
+-# The send buffer (SO_SNDBUF) used by the socket server
 socket.send.buffer.bytes=1048576
 
-# The receive buffer (SO_RCVBUF) used by the socket server
+-# The receive buffer (SO_RCVBUF) used by the socket server
 socket.receive.buffer.bytes=1048576
-# The maximum size of a log segment file. When this size is reached a new log segment will be created.
+-# The maximum size of a log segment file. When this size is reached a new log segment will be created.
 log.segment.bytes=536870912
+
+-queue.buffering.max.ms (for setting how long to wait before sending to broker, good for throughput not latency)
+-Consumer: replica.high.watermark.checkpoint.ms . (to let know what offset was last consumed)
+-Producer: batch size
+-Producer: linger.ms
