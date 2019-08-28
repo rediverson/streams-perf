@@ -7,7 +7,7 @@ Note these instructions use the following configuration:
 * Red Hat internal https://docs.google.com/document/d/1HOahEzLRdKiKC-TSfBaTGtoi1jiJetkh8CDF_pSeCaw/edit[env]
 * project/namespace: kafka
 * kafka cluster name: my-cluster
-* topics: my-topic
+* topics: my-topic (20 partitions / 3 replicas)
 
 This project assumes the following are installed
 
@@ -49,34 +49,13 @@ oc apply -f examples/topic/kafka-topic.yaml
 Create TLS based users
 ----
 oc apply -f examples/user/kafka-user.yaml
-oc apply -f examples/user/kafka-user-consumer.yaml
 ----
 
-== Install and configure client
+== Install and configure perf clients
 
-In the `producer` directory modify the `run.sh` file
 
-* Replace `CAMEL_COMPONENT_KAFKA_CONFIGURATION_BROKERS` with your kafka bootstrap route as in this link:route.png[image].
-
-* Replace `KAFKA_CLUSTER_CRT` value with the one in your cluster.  You can retrieve it with the command. Paste the contents of the file into the value for `KAFKA_CLUSTER_CRT`
-
+== Delete cluster
+The kafka cluster can be deleted with
 ----
-extract secret/kafka-test-cluster-ca-cert --keys=ca.crt --to=- > ca.crt
-----
-
-* Replace `KAFKA_USER_CRT` and `KAFKA_USER_KEY` values with the information from the `my-user` user. (USER.CRT = KAFKA_USER_CRT USER.KEY=KAFKA_USER_KEY).
-Use the copy to clip board icon located to the right on each values row (See openshift link:crtKey.png[image])
-
-* Be sure to save the file.
-
-== Install and run producer client
-In the `consumer` directory build and run the consumer.
-----
-mvn clean install
-./run.sh
-----
-
-In the terminal output you should see result similar to:
-----
-17:56:58.541 [Camel (camel-kafka-tls) thread #1 - timer://kickstartmyroute] INFO  route1 - Sending message: [Sending message: [Mon Aug 19 17:56:58 MST 2019]]
+oc delete kafka my-cluster
 ----
