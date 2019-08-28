@@ -16,4 +16,5 @@ Pre-reqs:
 
 
 Items to tune:
-1. Replication factor? ie replicas per partition
+1. Replication factor? ie replicas per partition 
+2. Replication: sync vs async
