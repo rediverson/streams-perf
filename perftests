@@ -49,3 +49,15 @@ log.segment.bytes=536870912
 Other considerations for being comparable to AWS MSK
 -----------------------------------------------------
 1. Networks hops between producer, broker, consumer comparable?
+Heard from customer that different VPC, same AZ for AMQ Streams while it is all same VPC, same AZ for MSk. 
+
+
+
+
+Sizing guidance
+--------------
+Need the following
+-# of topics
+-Replication factor needed
+-Incoming message rate : I am assuming this is the 3000messages @ 5 kb and so 15mb/sec
+-# of different consumer groups reading from this topic
