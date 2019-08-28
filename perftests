@@ -10,3 +10,4 @@ Pre-reqs:
 1. Get sample message from the customer
 2. How do they intend to run the perf test? timebound? # of messages sent and received?
 3. Do they want to test writes and reads or either?
+4. Will the publisher specify what partition to write to? K check kafka-producer-perf-test.sh
