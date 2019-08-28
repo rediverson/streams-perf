@@ -42,3 +42,9 @@ log.segment.bytes=536870912
 -Consumer: replica.high.watermark.checkpoint.ms . (to let know what offset was last consumed)
 -Producer: batch size
 -Producer: linger.ms
+
+
+
+Other considerations for being comparable to AWS MSK
+-----------------------------------------------------
+1. Networks hops between producer, broker, consumer comparable?
