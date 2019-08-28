@@ -8,3 +8,4 @@ Baseline scenario 2:  run kafka-consumer-perf-test.sh and kafka-producer-perf-te
 
 Pre-reqs:
 1. Get sample message from the customer
+2. How do they intend to run the perf test? timebound? # of messages sent and received?
