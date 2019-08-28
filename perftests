@@ -15,6 +15,7 @@ Pre-reqs:
 
 
 
-Items to tune:
+Items to tune (K to redo the order?):
 1. Replication factor? ie replicas per partition 
 2. Replication: sync vs async
+3. OS Page cache? or too early for that?
