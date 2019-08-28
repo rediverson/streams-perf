@@ -19,7 +19,7 @@ Pre-reqs/ Customer clarifications
 4. Will the publisher specify what partition to write to? K check kafka-producer-perf-test.sh
 5. Does teh customer want to do 'single thread' only? 
 6. Make sure we have one consumer per partition
-7. 
+7. How many topics?
 
 
 
