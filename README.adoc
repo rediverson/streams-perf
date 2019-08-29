@@ -12,7 +12,6 @@ Prereqs:
 
 * JDK 1.8
 * OpenSSL
-* Kafka
 
 NOTE: In order to install the cluster operator a user with cluster administrator
 
@@ -49,7 +48,7 @@ oc apply -f examples/user/kafka-user.yaml
 == Install and configure perf clients
 === Use the client directory for  all perf client activity
 ----
-cd client
+cd client/bin
 ----
 === Install openshift secrets into key and trust store
 ----
@@ -68,8 +67,8 @@ Modify the `consumer.properties` and `producer.properties` to meet your environm
 Note: You must have kafka installed locally and its `bin` directory is included in the `PATH` environment variable
 
 ----
-kafka-producer-perf-test.sh --producer.config producer.properties --throughput 15000000 --num-records 15000 --record-size 5000 --topic my-topic
-kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 15 --timeout 9999999999 --threads 20 --broker-list=https://my-cluster-kafka-0-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443,https://my-cluster-kafka-1-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443,https://my-cluster-kafka-2-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443
+./kafka-producer-perf-test.sh --producer.config producer.properties --throughput 15000000 --num-records 15000 --record-size 5000 --topic my-topic
+./kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 15 --timeout 9999999999 --threads 20 --broker-list=https://my-cluster-kafka-0-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443,https://my-cluster-kafka-1-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443,https://my-cluster-kafka-2-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443
 
 ----
 

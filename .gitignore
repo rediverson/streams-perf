@@ -1,7 +1,7 @@
-client/*.jks
-client/*.pkcs12
-client/*.key
-client/*.crt
+client/bin/*.jks
+client/bin/*.pkcs12
+client/bin/*.key
+client/bin/*.crt
 
 # ignore mavens target dir
 */target/**
