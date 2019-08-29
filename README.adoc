@@ -3,11 +3,16 @@
 A bare bones example of how to setup streams (Kafka) v1.2 on openshift using an external TLS client which uses client side TLS for authorization.
 Note these instructions use the following configuration:
 
-
 * Red Hat internal https://docs.google.com/document/d/1HOahEzLRdKiKC-TSfBaTGtoi1jiJetkh8CDF_pSeCaw/edit[env]
 * project/namespace: kafka
 * kafka cluster name: my-cluster
 * topics: my-topic (20 partitions / 3 replicas)
+
+Prereqs:
+
+* JDK 1.8
+* OpenSSL
+* Kafka
 
 NOTE: In order to install the cluster operator a user with cluster administrator
 
