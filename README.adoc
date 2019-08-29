@@ -53,6 +53,7 @@ cd client
 ----
 === Install openshift secrets into key and trust store
 ----
+rm *.crt *.key *.jks *.pkcs12
 oc extract secret/my-cluster-cluster-ca-cert --keys ca.crt
 keytool -keystore client-truststore.jks -alias CARoot -import -file ca.crt
 oc extract secret/my-user --confirm
