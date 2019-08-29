@@ -1,6 +1,7 @@
-producer/*.ks
-producer/*.ts
-producer/*.crt
+client/*.jks
+client/*.pkcs12
+client/*.key
+client/*.crt
 
 # ignore mavens target dir
 */target/**
