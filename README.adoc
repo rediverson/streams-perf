@@ -68,7 +68,7 @@ Note: You must have kafka installed locally and its `bin` directory is included 
 
 ----
 ./kafka-producer-perf-test.sh --producer.config producer.properties --throughput 15000000 --num-records 15000 --record-size 5000 --topic my-topic
-./kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 15 --timeout 9999999999 --threads 20 --broker-list=https://my-cluster-kafka-0-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443,https://my-cluster-kafka-1-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443,https://my-cluster-kafka-2-kafka.apps.cluster-tracs-ebca.tracs-ebca.open.redhat.com:443
+./kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 15 --timeout 9999999999 --threads 20 --broker-list=https://my-cluster-kafka-0-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443,https://my-cluster-kafka-1-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443,https://my-cluster-kafka-2-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443
 
 ----
 
