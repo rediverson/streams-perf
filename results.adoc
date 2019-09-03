@@ -1,0 +1,71 @@
+== Produce
+* produced 12136.904280 records/sec
+
+....
+150000 records sent, 12136.904280 records/sec (57.87 MB/sec), 466.42 ms avg latency, 1023.00 ms max latency, 457 ms 50th, 714 ms 95th, 880 ms 99th, 998 ms 99.9th.
+....
+
+== Consumer
+* consumed 8170.824 records/sec
+
+....
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:08:52:222, 2019-09-01 07:09:06:944, 716.0521, 48.6382, 150167, 10200.1766, 3075, 11647, 61.4795, 12893.1914
+....
+
+== 2 consumers
+
+* consumed group 10054.3304 records/sec
+* consumed group2 9417.9695 records/sec
+
+....
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:34:09:052, 2019-09-01 07:34:27:103, 717.4158, 39.7438, 150453, 8334.8845, 3087, 14964, 47.9428, 10054.3304
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:34:11:085, 2019-09-01 07:34:30:118, 715.2557, 37.5798, 150000, 7881.0487, 3106, 15927, 44.9084, 9417.9695
+....
+
+
+== Producer and Consumer running at same time - topic preloaded with 15000 messages
+* produced 8054.556194 records/sec
+* consumed 11726.2731 records/sec
+
+....
+150000 records sent, 8054.556194 records/sec (38.41 MB/sec), 694.79 ms avg latency, 1786.00 ms max latency, 525 ms 50th, 1492 ms 95th, 1683 ms 99th, 1735 ms 99.9th.
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:12:22:643, 2019-09-01 07:12:38:573, 717.0010, 45.0095, 150366, 9439.1714, 3107, 12823, 55.9152, 11726.2731
+....
+
+== produce consumer running at same time & same messages
+* produced 6098.552610 records/sec
+* consumed 8170.824 records/sec
+
+....
+150000 records sent, 6098.552610 records/sec (29.08 MB/sec), 953.85 ms avg latency, 5188.00 ms max latency, 414 ms 50th, 3850 ms 95th, 4982 ms 99th, 5164 ms 99.9th.
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:41:03:824, 2019-09-01 07:41:25:387, 715.2557, 33.1705, 150000, 6956.3604, 3205, 18358, 38.9615, 8170.8247
+....
+
+== 1 producer 3 consumer all running same time & same messages
+
+* produced 4237.766979 records/sec
+* consumed group 5856.2135 records/sec
+* consumed group2 5112.3071 records/sec
+* consumed group3 6055.0825 records/sec
+
+
+....
+150000 records sent, 4237.766979 records/sec (20.21 MB/sec), 1320.49 ms avg latency, 3595.00 ms max latency, 1499 ms 50th, 2291 ms 95th, 3035 ms 99th, 3509 ms 99.9th.
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:54:57:349, 2019-09-01 07:55:26:263, 716.8245, 24.7916, 150329, 5199.1769, 3244, 25670, 27.9246, 5856.2135
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:55:00:586, 2019-09-01 07:55:33:177, 715.6467, 21.9584, 150082, 4605.0137, 3234, 29357, 24.3774, 5112.3071
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-01 07:55:02:938, 2019-09-01 07:55:30:946, 715.4989, 25.5462, 150051, 5357.4336, 3227, 24781, 28.8729, 6055.0825
+....
