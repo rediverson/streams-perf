@@ -56,7 +56,7 @@ rm *.crt *.key *.jks *.pkcs12
 oc extract secret/my-cluster-cluster-ca-cert --keys ca.crt
 keytool -keystore client-truststore.jks -alias CARoot -import -file ca.crt
 oc extract secret/my-user --confirm
-openssl pkcs12 -inkey user.key -in user.crt -CAfile ca.key -export -name client -out client.pkcs12
+openssl pkcs12 -inkey user.key -in user.crt -export -name client -out client.pkcs12
 keytool -importkeystore -srckeystore client.pkcs12 -srcstoretype pkcs12 -destkeystore client-keystore.jks -deststoretype pkcs12
 ----
 === Modify Configuration
@@ -67,14 +67,14 @@ Modify the `consumer.properties` and `producer.properties` to meet your environm
 Note: You must have kafka installed locally and its `bin` directory is included in the `PATH` environment variable
 
 ----
-./kafka-producer-perf-test.sh --producer.config producer.properties --throughput 15000000 --num-records 15000 --record-size 5000 --topic my-topic
-./kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 15 --timeout 9999999999 --threads 20 --broker-list=https://my-cluster-kafka-0-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443,https://my-cluster-kafka-1-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443,https://my-cluster-kafka-2-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443
+./kafka-producer-perf-test.sh --producer.config producer.properties --throughput 15000000 --num-records 150000 --record-size 5000 --topic my-topic
+./kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 150000 --timeout 9999999999 --threads 20 --broker-list=https://my-cluster-kafka-0-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443,https://my-cluster-kafka-1-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443,https://my-cluster-kafka-2-kafka.apps.cluster-e6db.sandbox239.opentlc.com:443
 
 ----
 
-
-== Delete cluster
-The kafka cluster can be deleted with
+== Delete topics and clusters
+Delete topics and clusters with sample below
 ----
+oc delete kafkatopic my-topic
 oc delete kafka my-cluster
 ----
