@@ -29,6 +29,18 @@ spec:
           patternType: literal
         operation: Read
         host: "*"
+      - resource:
+          type: group
+          name: my-group2
+          patternType: literal
+        operation: Read
+        host: "*"
+      - resource:
+          type: group
+          name: my-group3
+          patternType: literal
+        operation: Read
+        host: "*"
       # Example Producer Acls for topic my-topic
       - resource:
           type: topic
