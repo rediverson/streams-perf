@@ -1,3 +1,23 @@
+= Out of the Box performance
+
+== Infrastructure
+* M4.large AWS instances
+** 2 CPU
+** 8 GB Memory
+** Dedicated EBS Bandwidth (Mbps): 450
+** Network Performance: Moderate
+* Storage: Dynamic AWS EBS
+* 3 worker nodes
+* No CPU or Memory Limits on the openshift workspace
+
+Producer and Consumer parameters
+----
+./kafka-producer-perf-test.sh --producer.config producer.properties --throughput 15000000 --num-records 150000 --record-size 5000 --topic my-topic
+
+./kafka-consumer-perf-test.sh --consumer.config consumer.properties --topic my-topic --group my-group --messages 150000 --timeout 9999999999 --threads 20 ...
+----
+
+
 == Produce
 * produced 12136.904280 records/sec
 
@@ -27,7 +47,7 @@ start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.s
 ....
 
 
-== Producer and Consumer running at same time - topic preloaded with 15000 messages
+== Producer and Consumer running at same time - topic pre-loaded with 15000 messages
 * produced 8054.556194 records/sec
 * consumed 11726.2731 records/sec
 
