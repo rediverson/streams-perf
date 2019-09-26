@@ -6,6 +6,13 @@ spec:
   kafka:
     version: 2.2.1
     replicas: 3
+    resources:
+      limits:
+        cpu: "12"
+        memory: 16Gi
+      requests:
+        cpu: "12"
+        memory: 16Gi
     authorization:
       type: simple
     listeners:
@@ -22,7 +29,7 @@ spec:
       transaction.state.log.min.isr: 2
       log.message.format.version: "2.2"
     storage:
-      type: jbod
+      type: default
       volumes:
       - id: 0
         type: persistent-claim
