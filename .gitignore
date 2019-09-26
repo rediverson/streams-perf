@@ -1,3 +1,5 @@
+priv.txt
+
 client/bin/*.jks
 client/bin/*.pkcs12
 client/bin/*.key
