@@ -6,6 +6,13 @@ spec:
   kafka:
     version: 2.2.1
     replicas: 3
+    resources:
+      limits:
+        cpu: "4"
+        memory: 16Gi
+      requests:
+        cpu: "4"
+        memory: 16Gi
     authorization:
       type: simple
     listeners:
