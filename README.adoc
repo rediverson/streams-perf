@@ -79,3 +79,26 @@ oc delete kafkauser my-user
 oc delete kafkatopic my-topic
 oc delete kafka my-cluster
 ----
+
+== Running within container
+
+Download your service account from https://access.redhat.com/terms-based-registry/ as an OpenShift secret and reference it below.
+----
+oc create -f my-service-account-pull-secret.yaml
+oc secrets link builder my-service-account-pull-secret
+oc new-app --name perf-client https://github.com/rediverson/streams-perf.git
+oc rsh perf-client-1-t7tn7
+cd /tmp/home/streams-perf/client/bin
+/tmp/home/streams-perf/client/bin/oc login -u opentlc-mgr -p r3dh4t1! https://api.cluster-dal-0975.dal-0975.open.redhat.com:6443
+/tmp/home/streams-perf/client/bin/oc extract secret/my-cluster-cluster-ca-cert --keys ca.crt
+keytool -keystore client-truststore.jks -alias CARoot -import -file ca.crt
+/tmp/home/streams-perf/client/bin/oc extract secret/my-user --confirm
+openssl pkcs12 -inkey user.key -in user.crt -export -name client -out client.pkcs12
+keytool -importkeystore -srckeystore client.pkcs12 -srcstoretype pkcs12 -destkeystore client-keystore.jks -deststoretype pkcs12
+----
+
+=== Config modification
+Start with the `Modify Configuration` step above and use the fully qualified service addresses within openshift. Example below:
+----
+bootstrap.servers=https://my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9093
+----
