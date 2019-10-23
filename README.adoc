@@ -97,8 +97,10 @@ openssl pkcs12 -inkey user.key -in user.crt -export -name client -out client.pkc
 keytool -importkeystore -srckeystore client.pkcs12 -srcstoretype pkcs12 -destkeystore client-keystore.jks -deststoretype pkcs12
 ----
 
-=== Config modification
+=== Config modification and running the tests
 Start with the `Modify Configuration` step above and use the fully qualified service addresses within openshift. Example below:
 ----
 bootstrap.servers=https://my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9093
 ----
+
+Execute the tests using the instructions above under the `Execute the producer performance test` section.
