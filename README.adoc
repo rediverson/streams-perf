@@ -98,7 +98,7 @@ oc secrets link builder my-service-account-pull-secret
 oc new-app --name perf-client https://github.com/rediverson/streams-perf.git
 oc rsh perf-client-1-t7tn7
 cd /tmp/home/streams-perf/client/bin
-/tmp/home/streams-perf/client/bin/oc login -u opentlc-mgr -p r3dh4t1! https://api.cluster-dal-0975.dal-0975.open.redhat.com:6443
+/tmp/home/streams-perf/client/bin/oc login -u xxxx -p xxxxx https://api.cluster-dal-0975.dal-0975.open.redhat.com:6443
 /tmp/home/streams-perf/client/bin/oc extract secret/my-cluster-cluster-ca-cert --keys ca.crt
 keytool -keystore client-truststore.jks -alias CARoot -import -file ca.crt
 /tmp/home/streams-perf/client/bin/oc extract secret/my-user --confirm
