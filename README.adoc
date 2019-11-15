@@ -15,6 +15,15 @@ Prereqs:
 
 NOTE: In order to install the cluster operator a user with cluster administrator
 
+For the purpose of this testing we used these settings
+
+* memory (min) = 4 * CPU (1 CPU = 4 GB of RAM)
+* java memory 
+** Xms = Xmx
+** Xmx is roughly 1/4 of the total pod memory
+*** pod: 4 GB, Xmx = 1 GB
+
+
 == Install cluster operator
 
 After logging into openshift via the cli create a new project
