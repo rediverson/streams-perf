@@ -89,3 +89,24 @@ start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.s
 start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
 2019-09-01 07:55:02:938, 2019-09-01 07:55:30:946, 715.4989, 25.5462, 150051, 5357.4336, 3227, 24781, 28.8729, 6055.0825
 ....
+
+== 1 producer 3 consumers (1 on same producer machine, 2 on different pods)
+
+* produced 2589.689583 records/sec
+* consumed group  3101.9935 records/sec
+* consumed group2 3020.8438 records/sec
+* consumed group3 4445.6299 records/sec
+
+
+....
+150000 records sent, 2589.689583 records/sec (12.35 MB/sec), 2252.88 ms avg latency, 18532.00 ms max latency, 585 ms 50th, 12842 ms 95th, 16979 ms 99th, 18390 ms 99.9th.
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-09 21:57:59:450, 2019-09-09 21:58:52:465, 715.2557, 13.4916, 150000, 2829.3879, 4659, 48356, 14.7915, 3101.9935
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-09 21:57:58:503, 2019-09-09 21:58:52:479, 715.2557, 13.2514, 150000, 2779.0129, 4321, 49655, 14.4045, 3020.8438
+
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2019-09-09 21:58:01:973, 2019-09-09 21:58:52:409, 715.2557, 14.1815, 150000, 2974.0661, 16695, 33741, 21.1984, 4445.6299
+....
